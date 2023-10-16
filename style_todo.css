@@ -1,0 +1,395 @@
+
+:root{
+  --sk_yellow:#FFDE59;
+  --transparent-black:rgba(0, 0, 0, .8);
+  --sk_white:#fff;
+    --sk_dark_gray:#333;
+     --sk_gray:#545454;
+}
+
+header nav{
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 15rem;
+  background-color: var(--sk_white);
+}
+header nav ul{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  list-style: none;
+  animation: fadeSomething .2s ease-in-out;
+}
+
+header nav ul li a{
+  text-decoration: none;
+  color: var(--sk_dark_gray);
+  display: block;
+  padding: 1rem;
+  border-radius: 1rem;
+  transition: all .2s ease-in-out;
+}
+html {
+  font-family: 'Lato', sans-serif;
+  scroll-behavior: smooth;
+  font-size: 13px;
+}
+nav ul li a:hover{
+  background-color: var(--sk_yellow);
+}
+
+.buttons{
+  padding: 1rem 2rem;
+  background-color: var(--sk_yellow);
+  transition: all .2s ease-in-out;
+  border: none;
+  text-decoration: none;
+  color: var(--sk_dark_gray);
+}
+
+.underline_me2{
+  position: relative;
+  border-bottom: .5rem solid var(--sk_yellow);
+}
+
+.top{
+  position: fixed;
+  text-align: center;
+  padding: 1rem;
+  bottom: 2%;
+  right: 1%;
+} 
+
+.menu{
+  position: absolute;
+  height: 3rem;
+  width: 3%;
+  top: 5%;
+  right: 4%;
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: .4rem;
+  border-radius: 0.5rem;
+}
+.menu:hover{
+  background-color: #efefef;
+}
+.menu span{
+  height: .4rem;
+  width: 100%;
+  background-color: var(--sk_dark_gray);
+  border-radius: 0.5rem;
+}
+header nav ul.active{
+  display: flex;
+}
+.contact_form_container form{
+  width: 100%;
+}
+.toggleImage{
+  position: fixed;
+  z-index: 1;
+  height: 100vh;
+  width: 100%;
+  background-color: var(--transparent-black);
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+.toggleImage.active{
+  display: flex;
+}
+@keyframes pop {
+  from{
+      opacity: 0;
+      scale: 1.1;
+  }
+  to{
+      opacity: 1;
+  }
+}
+.toggleImage img{
+  animation: pop 1s ease-in-out ;
+}
+.show{
+  animation: fadeInLeft 1s ease-in-out;
+}
+.showIn{
+  animation: fadeInUp 1s ease-in-out;
+}
+
+@keyframes fadeInLeft {
+  from{
+      opacity: 0;
+      filter: blur(2px);
+      transform: translateX(-50%);
+  } 
+  to{
+      opacity: 1;
+      filter: blur(0);
+      transform: translateX(0);
+  }
+}
+@keyframes fadeInUp {
+  from{
+      opacity: 0;
+      filter: blur(2px);
+      transform: translateY(-5%);
+  } 
+  to{
+      opacity: 1;
+      filter: blur(0);
+      transform: translateY(0);
+  }
+}
+
+
+@media screen and (max-width:900px){
+  header nav{
+   padding: 0;
+   flex-direction: column;
+   }
+   .logo_container{
+       width: 100%;
+       padding: 0 2rem;
+   }
+   header nav ul{
+       flex-direction: column;
+       width: 100%;
+       background-color: #fbfbfb;
+       display: none;
+   }
+   header nav ul li{
+       width: 100%;
+       text-align: center;
+   }
+   .menu{
+       top: 2%;
+       display: flex;
+   }
+   header{
+       min-height: 40vh;
+   }
+   .my_sections{
+       padding: 5rem 2rem;
+       min-height: 50vh;
+   }
+   .sub_sections{
+       gap: 1rem;
+   }
+   .text_container p{
+       font-size: 2rem;
+       letter-spacing: .2rem;
+   }
+   .services_container{
+       padding: 5rem;
+   }
+   .service_cart{
+       padding: 1rem;
+       text-align: center;
+     
+   }
+   .tool_carts_container{
+       grid-template-columns: repeat(4,1fr);
+   }
+   .portfolio_container{
+       grid-template-columns: repeat(2,1fr);
+   }
+   .uiux_design_portfolio{
+       grid-template-columns: repeat(2,1fr);
+       height: auto;
+   }
+   .toggleImage img{
+       width: 80%;
+   }
+}
+@media screen and (max-width:500px) {
+  .sub_sections{
+      grid-template-columns: 1fr;
+  }
+  .text_container p{
+      font-size: 1.6rem;
+      letter-spacing: .2rem;
+  }
+  .services_container{
+      padding: 2rem;
+      grid-template-columns: 1fr;
+  }
+  .service_cart{
+      padding: 1rem;
+      text-align: center;
+      height: 20rem;
+  }
+  .tool_carts_container{
+      grid-template-columns: repeat(3,1fr);
+      padding: 0;
+  }
+  .portfolio_container{
+      grid-template-columns:1fr;
+  }
+  .uiux_design_portfolio{
+      grid-template-columns: 1fr;
+  }
+  .contact_form_container{
+      grid-template-columns: 1fr;
+  }
+  .toggleImage img{
+      width: 95%;
+  }
+}
+  /* Réinitialisation des marges, paddings et boîtes */
+
+/* Styles pour l'en-tête */
+header {
+  font-size: 1.5rem;
+}
+
+/* Styles pour l'en-tête et le formulaire */
+header,
+form {
+  min-height: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Styles pour les champs de saisie et les boutons dans le formulaire */
+form input,
+form button {
+  padding: 0.5rem;
+  font-size: 2rem;
+  border: none;
+  background: brown;
+}
+
+/* Styles pour le bouton dans le formulaire */
+form button {
+  color: black;
+  background: brown;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* Effet de survol pour le bouton */
+form button:hover {
+  background: white;
+  color: #c31818;
+}
+
+/* Conteneur principal de la liste de tâches */
+.todo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Liste de tâches */
+.todo-list {
+  min-width: 15%;
+  list-style: none;
+}
+
+/* Styles pour chaque élément de tâche */
+.todo {
+  margin: 0.5rem;
+  background: brown;
+  color: black;
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.5s ease;
+}
+
+/* Chaque élément de tâche */
+.todo li {
+  flex: 1;
+}
+
+/* Boutons pour supprimer et marquer comme terminé */
+.trash-btn,
+.complete-btn {
+  background: #c31818;
+  color: black;
+  border: none;
+  padding: 1rem;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+/* Style pour le bouton de marquage comme terminé */
+.complete-btn {
+  background: rgb(73, 204, 73);
+}
+
+/* Style pour le contenu de la tâche */
+.todo-item {
+  padding: 0rem 0.5rem;
+}
+
+/* Désactiver les icônes au départ */
+.fa-trash,
+.fa-check {
+  pointer-events: none;
+}
+
+/* Style pour les tâches terminées */
+.completed {
+  text-decoration: line-through;
+  opacity: 0.5;
+}
+
+/* Animation pour supprimer une tâche */
+.fall {
+  transform: translateY(8rem) rotateZ(20deg);
+  opacity: 0;
+}
+
+/* Styles pour le sélecteur */
+select {
+  -webkit-appearance: none;
+  -moz-appeareance: none;
+  appearance: none;
+  outline: none;
+  box-shadow: none;
+  border: none;
+}
+
+/* Style pour le conteneur du sélecteur */
+.select {
+  margin: 1rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Styles pour le sélecteur lui-même */
+select {
+  color: #1c5e8a;
+  width: 10rem;
+  cursor: pointer;
+  padding: 1rem;
+}
+
+/* Flèche du sélecteur */
+.select::after {
+  content: "\25BC";
+  position: absolute;
+  background: brown;
+  top: 10;
+  right: 0;
+  padding: 1rem;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+/* Effet de survol pour la flèche du sélecteur */
+.select:hover::after {
+  background: black;
+  color: white;
+}
+
